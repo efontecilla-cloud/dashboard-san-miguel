@@ -450,7 +450,7 @@ app.layout = dbc.Container([
                     ], width=10),
                     dbc.Col([
                         html.Img(
-                            src="/assets/LOGO.PNG",
+                            src="assets/LOGO.PNG",
                             style={
                                 'height': '80px',
                                 'width': 'auto',
@@ -979,6 +979,7 @@ def actualizar_dashboard(pisos_seleccionados, orientacion_seleccionada, estados_
     ])
     
     return fig_3d, metricas_componente, info_text, tabla_ventas, tabla_precios
+
 
 if __name__ == "__main__":
     app.run(debug=True)
