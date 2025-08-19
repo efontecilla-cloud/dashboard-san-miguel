@@ -764,7 +764,7 @@ def actualizar_dashboard(pisos_seleccionados, orientacion_seleccionada, estados_
     # Filtrar por orientación
     orientaciones_tipos = {
         'norte': [2, 3, 4],      # ARRIBA: Tipos 2, 3, 4
-        'oriente': [3, 4, 5],    # DERECHA: Tipos 3, 4, 5  
+        'oriente': [6, 4, 5],    # DERECHA: Tipos 3, 4, 5  
         'sur': [6, 7, 8],        # ABAJO: Tipos 6, 7, 8
         'poniente': [8, 1, 2]    # IZQUIERDA: Tipos 8, 1, 2
     }
