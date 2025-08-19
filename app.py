@@ -475,7 +475,7 @@ app.layout = dbc.Container([
                     ], width=10),
                     dbc.Col([
                         html.Img(
-                            src="/assets/LOGO.PNG",
+                            src="/assets/LOGO.png",
                             style={
                                 'height': '80px',
                                 'width': 'auto',
