@@ -7,6 +7,9 @@ from dash import dcc, html, Input, Output, State
 import dash_bootstrap_components as dbc
 from datetime import datetime
 import numpy as np
+import os
+from flask import send_from_directory
+
 
 def cargar_datos(archivo_excel):
     try:
@@ -423,11 +426,33 @@ def crear_grafico_3d(df_filtrado):
     
     return fig
 
-# Crear la aplicación Dash
-app = dash.Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP])
+
+
+# Crear la aplicación Dash con configuración de assets
+app = dash.Dash(__name__, 
+                external_stylesheets=[dbc.themes.BOOTSTRAP],
+                assets_folder='assets',
+                suppress_callback_exceptions=True)
 
 # IMPORTANTE: Para deploy
 server = app.server
+
+# Configurar servicio de archivos estáticos para producción
+@server.route('/assets/<filename>')
+def download_file(filename):
+    return send_from_directory('assets', filename)
+
+# Debug: verificar archivos
+if os.path.exists('assets'):
+    assets_files = os.listdir('assets')
+    print(f"📁 Assets encontrados: {assets_files}")
+    if 'LOGO.PNG' in assets_files:
+        print("✅ LOGO.PNG encontrado")
+    else:
+        print("❌ LOGO.PNG no encontrado")
+else:
+    print("❌ Carpeta assets no existe")
+
 
 # Cargar datos globalmente
 print("🔄 Cargando datos...")
@@ -450,7 +475,7 @@ app.layout = dbc.Container([
                     ], width=10),
                     dbc.Col([
                         html.Img(
-                            src="assets/LOGO.PNG",
+                            src="/assets/LOGO.PNG",
                             style={
                                 'height': '80px',
                                 'width': 'auto',
