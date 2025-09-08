@@ -1,0 +1,41 @@
+/* Animaciones para componentes del dashboard */
+.animated-component {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.metric-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #e9ecef !important;
+}
+
+.metric-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15) !important;
+}
+
+/* Animación para números que cambian */
+.metric-number {
+    transition: all 0.5s ease-in-out;
+    font-family: 'Arial', sans-serif;
+    font-weight: 700 !important;
+}
+
+/* Loading animations */
+.loading-fade {
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.loading-fade.loaded {
+    opacity: 1;
+}
+
+/* Mejoras visuales */
+.border {
+    border-radius: 8px !important;
+}
+
+/* Smooth transitions para dropdowns */
+.Select-control {
+    transition: border-color 0.3s ease !important;
+}
